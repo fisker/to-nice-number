@@ -1,6 +1,9 @@
 function toNiceNumber(number, round = false) {
   const isNegative = number < 0
-  const exponent = Math.floor(Math.log10(Math.abs(number)))
+  if (isNegative) {
+    number = Math.abs(number)
+  }
+  const exponent = Math.floor(Math.log10(number))
   const base = 10 ** exponent
   const fraction = number / base
 
