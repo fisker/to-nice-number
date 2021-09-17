@@ -25,12 +25,12 @@ const createSnapShot = (numbers, round) => {
 }
 
 let numbers = [
-  0, 1, 1.234_567_89, 1.345_678_9, 1.456_789, 1.567_89, 1.6789, 1.789, 1.89,
-  1.9,
+  0, 0.123_456_789, 0.234_567_89, 0.345_678_9, 0.456_789, 0.567_89, 0.6789,
+  0.789, 0.89, 0.9, 1,
 ]
 
 numbers = numbers
-  .flatMap((number) => [number * 2, number + number / 10, number * Math.PI])
+  .flatMap((number) => [number, number * 2, number + number / 10, number * Math.PI])
   .flatMap((number) => [number, number / 1000, number * 1000])
   .flatMap((number) => [number, -number])
 numbers = [...new Set(numbers)].sort()
