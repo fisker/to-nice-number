@@ -40,5 +40,5 @@ test('main', (t) => {
 })
 
 test('round', (t) => {
-  t.snapshot(createSnapShot(numbers, false))
+  t.snapshot(createSnapShot(numbers, true))
 })
