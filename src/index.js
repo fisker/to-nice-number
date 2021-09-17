@@ -39,7 +39,14 @@ function toNiceNumber(number, round = false) {
   const niceFraction = (round ? toRoundedNiceFranction : toNiceFranction)(
     fraction,
   )
-  const niceNumber = niceFraction * base
+  let niceNumber = niceFraction * base
+
+  // Fix 3 * 0.1 === 0.30000000000000004 issue (see IEEE 754).
+  // 20 is the uppper bound of toFixed.
+  // Copied from https://github.com/apache/echarts/blob/1bbeff5be541a392d139105b63004880fc1eeeb9/src/util/number.ts#L481
+  if (exponent >= -20) {
+    niceNumber = Number(niceNumber.toFixed(exponent < 0 ? -exponent : 0))
+  }
 
   return isNegative ? -niceNumber : niceNumber
 }

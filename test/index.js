@@ -30,7 +30,12 @@ let numbers = [
 ]
 
 numbers = numbers
-  .flatMap((number) => [number, number * 2, number + number / 10, number * Math.PI])
+  .flatMap((number) => [
+    number,
+    number * 2,
+    number + number / 10,
+    number * Math.PI,
+  ])
   .flatMap((number) => [number, number / 1000, number * 1000])
   .flatMap((number) => [number, -number])
 numbers = [...new Set(numbers)].sort()
