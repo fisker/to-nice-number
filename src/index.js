@@ -34,12 +34,12 @@ function toNiceNumber(number, round = false) {
   }
 
   const exponent = Math.floor(Math.log10(number))
-  const base = 10 ** exponent
-  const fraction = number / base
+  const factor = 10 ** exponent
+  const fraction = number / factor
   const niceFraction = (round ? toRoundedNiceFranction : toNiceFranction)(
     fraction,
   )
-  let niceNumber = niceFraction * base
+  let niceNumber = niceFraction * factor
 
   // Fix 3 * 0.1 === 0.30000000000000004 issue (see IEEE 754).
   // 20 is the uppper bound of toFixed.
