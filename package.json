@@ -1,6 +1,6 @@
 {
   "name": "to-nice-number",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A JavaScript implementation of \"Nice Numbers for Graph Labels\" from Graphic Gems",
   "homepage": "https://github.com/fisker/to-nice-number#readme",
   "bugs": {
